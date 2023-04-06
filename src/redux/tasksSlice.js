@@ -49,6 +49,7 @@ const tasksSlice = createSlice({
         state.items.splice(index, 1, action.payload);
       })
       .addCase(toggleCompleted.rejected, handleRejected)
+
       .addMatcher(
         isAnyOf(
           fetchTasks.pending,

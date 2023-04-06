@@ -1,11 +1,9 @@
-import { Button } from "components/Button/Button";
-import css from "./StatusFilter.module.css";
-
-import { useSelector, useDispatch } from "react-redux";
-import { statusFilters } from "redux/constants";
-import { getStatusFilter } from "redux/selectors";
-import { setStatusFilter } from "redux/filtersSlice";
-import { deleteOlCompleted } from "redux/tasksSlice";
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from 'components/Button/Button';
+import { statusFilters } from 'redux/constants';
+import { getStatusFilter } from 'redux/selectors';
+import { setStatusFilter } from 'redux/filtersSlice';
+import css from './StatusFilter.module.css';
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
@@ -26,18 +24,13 @@ export const StatusFilter = () => {
         onClick={() => handleFilterChange(statusFilters.active)}
       >
         Active
-        </Button>
+      </Button>
       <Button
         selected={filter === statusFilters.completed}
         onClick={() => handleFilterChange(statusFilters.completed)}
       >
         Completed
-        </Button>
-        <Button
-        onClick={() => dispatch(deleteOlCompleted())}
-      >
-        Delete ol completed
-        </Button>
+      </Button>
     </div>
   );
 };
